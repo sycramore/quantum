@@ -1,5 +1,5 @@
 #initialize a superposition as 1/sqrt(2) (0+1) and then measure in computational basis
-#this should deliver a random bit
+#this should deliver a string of random bits with probability 0.5 for each bit
 
 import cirq
 
