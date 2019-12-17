@@ -2,9 +2,10 @@
 #this should deliver a string of random bits with probability 0.5 for each bit
 
 import cirq
-
+print("Bit string length:")
+rep = input()
 #final number of bits divided by 2
-num_bits = 3
+num_bits = 1
 
 #initialize qubits
 qubits = [cirq.GridQubit(i, j) for i in range(num_bits) for j in range(2)]
@@ -18,12 +19,8 @@ superposition_circuit.append(cirq.H(q) for q in qubits)
 
 superposition_circuit.append(cirq.measure(*qubits, key='z'))
 
-print(qubits)
-print(superposition_circuit)
-
-
 #run simulation of circuit
 simulator = cirq.google.XmonSimulator()
 
-results = simulator.run(superposition_circuit, repetitions=1)
+results = simulator.run(superposition_circuit, repetitions=rep)
 print(results)
